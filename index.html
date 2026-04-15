@@ -15,7 +15,7 @@
 
         body {
             min-height: 100vh;
-            background-color: #808080;
+            background: linear-gradient(to bottom, #808080, #b0b0b0);
             color: #000000;
             display: flex;
             flex-direction: column;
@@ -33,10 +33,11 @@
         h1 {
             color: #808080;
             text-align: center;
-            margin-bottom: 20px;
         }
 
         main {
+            max-width: 600px;
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -51,7 +52,8 @@
         p {
             font-size: 18px;
             text-align: center;
-            margin-bottom: 20px;
+            color: #222;
+            margin-bottom: 10px;
             max-width: 500px;
         }
 
@@ -61,10 +63,10 @@
             align-items: center;
             gap: 20px;
         }
-
+        
         .box {
+            position: relative;
             width: 200px;
-            height: 100px;
             background-color: darkseagreen;
             padding: 10px;
             border: 2px solid #000000;
@@ -74,14 +76,41 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .box:hover {
+            transform: translateY(-5px);
         }
 
         .box img {
+            display: block;
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 10px;
-            transition: 0.3s ease;
+            transition: transform 0.3s ease;
+        }
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            text-align: center;
+            padding: 8px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(5px);
+                       
+        }
+        .box:hover .overlay {
+            transform: translateY(0);
         }
 
         .box:hover img {
@@ -105,14 +134,17 @@
         }
 
         .btn {
+            display: inline-block;
             background-color: #4169e1;
             color: #ffffff;
             padding: 10px 20px;
             border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
             font-size: 14px;
             font-weight: bold;
             text-decoration: none;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         .btn:hover {
@@ -150,16 +182,20 @@
 
             .btn {
                 width: 100%;
+                max-width: 250px;
                 text-align: center;
+                transition: background-color 0.3s ease;
             }
 
             .container {
-                flex-direction: column;
+                flex-wrap: wrap;
+                justify-content: center;
             }
-        }
+            
+         } 
+         
     </style>
 </head>
-
 <body>
     <header>
         <h1>Cleisson Cardoso</h1>
@@ -175,11 +211,12 @@
             My daughter's name is Sabrine and she is 16 years old. She's beautiful.
         </p>
         <div class="container">
-            <div class="box my-photo contai">
-                <img src="./assets/my-photo.jpeg" alt="foto-cleisson" />
+            <div class="box my-photo">
+                <img src="./assets/my-photo.jpeg" alt="Photo of Cleisson Cardoso" />
             </div>
             <div class="box family-photo">
-                <img src="./assets/my-daughter-and-me.jpeg" alt="daughter-and-father-photo">
+                <img src="./assets/my-daughter-and-me.jpeg" alt="Cleisson and his daughter Sabrine">
+                <span class="overlay">My Family</span>
             </div>
         </div>
         <a href="https://www.instagram.com/clei_oliver/" target="_blank" class="btn">
