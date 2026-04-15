@@ -14,7 +14,7 @@
         }
 
         body {
-            height: 100vh;
+            min-height: 100vh;
             background-color: #808080;
             color: #000000;
             display: flex;
@@ -81,11 +81,12 @@
             height: 100%;
             object-fit: cover;
             border-radius: 10px;
+            transition: 0.3s ease;
         }
 
         .box:hover img {
             transform: scale(1.05);
-            transition: 0.3s ease;
+
         }
 
         .my-photo {
@@ -98,6 +99,7 @@
             width: 200px;
             height: 200px;
         }
+
         .family-photo img {
             object-position: center 30%;
         }
@@ -129,22 +131,28 @@
             color: #ffffff;
 
         }
-        @media (max-width: 600px){
+
+        @media (max-width: 600px) {
             p {
                 font-size: 16px;
                 padding: 0 10px;
             }
-            .my-photo, .family-photo {
+
+            .my-photo,
+            .family-photo {
                 width: 150px;
                 height: 150px;
             }
+
             main {
                 padding: 10px;
             }
+
             .btn {
                 width: 100%;
                 text-align: center;
             }
+
             .container {
                 flex-direction: column;
             }
@@ -166,15 +174,13 @@
         <p>
             My daughter's name is Sabrine and she is 16 years old. She's beautiful.
         </p>
-        <div class="box my-photo">
-
-            <img src="./assets/my-photo.jpeg" alt="foto-cleisson" />
-
-        </div>
-        <div class="box family-photo">
-            
-            <img src="./assets/my-daughter-and-me.jpeg" alt="daughter-and-father-photo">
-
+        <div class="container">
+            <div class="box my-photo contai">
+                <img src="./assets/my-photo.jpeg" alt="foto-cleisson" />
+            </div>
+            <div class="box family-photo">
+                <img src="./assets/my-daughter-and-me.jpeg" alt="daughter-and-father-photo">
+            </div>
         </div>
         <a href="https://www.instagram.com/clei_oliver/" target="_blank" class="btn">
             Click here to see my Instagram Profile
